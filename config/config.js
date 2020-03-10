@@ -1,4 +1,4 @@
-import {key} from './appKey'
+import { key } from './appKey'
 
 const config = {
     appkey: key,
