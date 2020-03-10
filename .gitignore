@@ -2,3 +2,5 @@
 .vscode
 
 config/appKey.js
+
+node_modules/

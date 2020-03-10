@@ -1,0 +1,24 @@
+{
+  "name": "c-sleeve",
+  "version": "0.0.1",
+  "description": "风袖小程序",
+  "main": "app.js",
+  "dependencies": {
+    "lin-ui": "~0.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slTrust/c-sleeve.git"
+  },
+  "keywords": [],
+  "author": "hjx",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/slTrust/c-sleeve/issues"
+  },
+  "homepage": "https://github.com/slTrust/c-sleeve#readme"
+}
