@@ -1,23 +1,18 @@
-/*
- 业务对象
- theme / banner / spu / sku / address / user
-*/
+import { Http } from '../utils/http'
 class Theme {
-    static getHomeLocationA() {
-        wx.request({
-            url: `${config.apiBaseUrl}theme/by/names`,
-            method: 'GET',
+    static getHomeLocationA(callback) {
+        Http.request({
+            url: 'theme/by/names',
             data: {
                 names: 't-1'
             },
-            header: {
-                appkey: config.appkey
-            },
-            success: res => {
-                this.setData({
-                    topTheme: res.data[0]
-                })
+            callback: data => {
+                callback(data)
             }
         })
     }
+}
+
+export {
+    Theme
 }
