@@ -2,5 +2,9 @@
     width: 100%;
     height: 260rpx;
 }
+.swiper{
+    width: 100%;
+    height: 360rpx;
+}
 
 /*rpx px 自适应 */
