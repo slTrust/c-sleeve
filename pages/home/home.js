@@ -1,11 +1,13 @@
 // pages/home/home.js
+import {config} from "../../config/config";
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    topTheme:null
   },
 
   /**
@@ -13,13 +15,18 @@ Page({
    */
   onLoad: function (options) {
     wx.request({
-      url:'http://se.7yue.pro/v1/theme/by/names',
+      url:`${config.apiBaseUrl}theme/by/names`,
       method:'GET',
       data:{
         names:'t-1'
       },
       header:{
-        appkey:''
+        appkey:config.appkey
+      },
+      success:res => {
+        this.setData({
+          topTheme:res.data[0]
+        })
       }
     })
   },
