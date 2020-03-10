@@ -1,8 +1,8 @@
 // pages/home/home.js
-import {Theme} from "../../model/theme";
-import {Banner} from "../../model/banner";
-import {Category} from "../../model/category";
-import {Activity} from "../../model/activity";
+import { Theme } from "../../model/theme";
+import { Banner } from "../../model/banner";
+import { Category } from "../../model/category";
+import { Activity } from "../../model/activity";
 
 Page({
 
@@ -11,6 +11,7 @@ Page({
      */
     data: {
         themeA: null,
+        themeE: null,
         bannerB: null,
         grid: [],
         activityD: null
@@ -30,13 +31,18 @@ Page({
         this.initAllData();
     },
     async initAllData() {
-        const themeA = await Theme.getHomeLocationA();
+        const theme = new Theme();
+        await theme.getThemes();
+        const themeA = await theme.getHomeLocationA();
+        const themeE = await theme.getHomeLocationE();
+
         const bannerB = await Banner.getHomeLocationB();
         const grid = await Category.getHomeLocationC();
         const activityD = await Activity.getHomeLocationD();
         this.setData({
-            themeA: themeA[0],
-            bannerB: bannerB,
+            themeA,
+            themeE,
+            bannerB,
             grid,
             activityD
         })
