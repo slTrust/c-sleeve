@@ -20,11 +20,11 @@ Page({
    * Model / Login / Service
    * Service  / Mangeer
    */
-  onLoad: function (options) {
-    Theme.getHomeLocationA(data => {
-      this.setData({
-        topTheme: data[0]
-      })
+  onLoad: async function (options) {
+    const data = await Theme.getHomeLocationA();
+    console.log(data);
+    this.setData({
+      topTheme: data[0]
     })
   },
   onPullDownRefresh: function () {
