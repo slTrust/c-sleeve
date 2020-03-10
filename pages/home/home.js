@@ -1,5 +1,5 @@
 // pages/home/home.js
-import {config} from "../../config/config";
+import { config } from "../../config/config";
 
 Page({
 
@@ -7,28 +7,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-    topTheme:null
+    topTheme: null
   },
 
   /**
    * 生命周期函数--监听页面加载
+   * JS 类型的约束
+   * 业务逻辑
+   * 数据绑定
+   * view视图层 业务逻辑层 桥梁 中间层
+   * MVC C controller C写业务  Model 写业务
+   * Model / Login / Service
+   * Service  / Mangeer
    */
   onLoad: function (options) {
-    wx.request({
-      url:`${config.apiBaseUrl}theme/by/names`,
-      method:'GET',
-      data:{
-        names:'t-1'
-      },
-      header:{
-        appkey:config.appkey
-      },
-      success:res => {
-        this.setData({
-          topTheme:res.data[0]
-        })
-      }
-    })
+
   },
 
   /**
