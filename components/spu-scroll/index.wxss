@@ -38,6 +38,12 @@
     align-items: center;
 }
 
+.spu-text{
+    font-size: 20rpx;
+    color:#666666;
+    margin-top: 20rpx;
+}
+
 .spu-img{
     width: 160rpx;
     height: 160rpx;

@@ -7,11 +7,11 @@
             <block wx:for="{{spuList}}">
                 <view class="spu-container">
                     <image class="spu-img" src="{{item.img}}"></image>
+                    <text class="spu-text">{{item.title}}</text>
                     <l-price 
                         l-unit-class="price-unit"
                         l-value-class="price-value"
                         value="{{item.price}}"></l-price>
-                    <text>{{item.title}}</text>
                 </view>            
             </block>    
         </view>
