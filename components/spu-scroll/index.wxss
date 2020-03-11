@@ -10,12 +10,12 @@
 }
 
 .price-unit{
-    font-size: 28rpx !important;
+    font-size: 24rpx !important;
     color:#157658 !important;
 }
 
 .price-value{
-    font-size: 32rpx !important;
+    font-size: 26rpx !important;
     font-weight: 800 !important;
     color:#157658 !important;
 }
