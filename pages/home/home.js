@@ -16,25 +16,14 @@ Page({
         grid: [],
         activityD: null
     },
-
-    /**
-     * 生命周期函数--监听页面加载
-     * JS 类型的约束
-     * 业务逻辑
-     * 数据绑定
-     * view视图层 业务逻辑层 桥梁 中间层
-     * MVC C controller C写业务  Model 写业务
-     * Model / Login / Service
-     * Service  / Mangeer
-     */
     async onLoad(options) {
         this.initAllData();
     },
     async initAllData() {
         const theme = new Theme();
         await theme.getThemes();
-        const themeA = await theme.getHomeLocationA();
-        const themeE = await theme.getHomeLocationE();
+        const themeA = theme.getHomeLocationA();
+        const themeE = theme.getHomeLocationE();
         let themeESpu = [];
         if (themeE.online) {
             const data = await Theme.getHomeLocationESpu();
@@ -42,17 +31,25 @@ Page({
                 themeESpu = data.spu_list.slice(0, 8)
             }
         }
+        const themeF = theme.getHomeLocationF();
 
         const bannerB = await Banner.getHomeLocationB();
         const grid = await Category.getHomeLocationC();
         const activityD = await Activity.getHomeLocationD();
+
+        const bannerG = await Banner.getHomeLocationG();
+        const themeH = theme.getHomeLocationH();
+
         this.setData({
             themeA,
-            themeE,
-            themeESpu,
             bannerB,
             grid,
-            activityD
+            activityD,
+            themeE,
+            themeESpu,
+            themeF,
+            bannerG,
+            themeH
         })
     },
     onPullDownRefresh: function () {
