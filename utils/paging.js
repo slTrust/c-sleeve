@@ -7,7 +7,7 @@ class Paging{
     locker = false
     url // 保留原始url
 
-    moreData
+    moreData = true
     accumulator = []
 
     constructor(req, count=10, start=0){
@@ -69,7 +69,7 @@ class Paging{
         const params = `start=${this.start}&count=${this.count}`;
         // url = v1/spu/latest + '?' + paramns
         // url = v1/spu/latest?other=abc+'&'+params
-        if(url.inddexOf('?') !== -1){
+        if(url.includes('?')){
             url += '&' + params;
         }else{
             url += '?' + params;
