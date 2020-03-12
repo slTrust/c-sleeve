@@ -14,7 +14,7 @@
 }
 
 .img{
-    
+
 }
 
 .tags{
@@ -25,7 +25,7 @@
 }
 
 .l-tag{
-    background-color: #DECBE6 !important;
+    background-color: #DCEBE6 !important;
     color:#157658 !important;
     height: 36rpx !important;
     padding-left: 6rpx !important;
