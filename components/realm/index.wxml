@@ -1,0 +1,13 @@
+<view class="container">
+    <view class="title"></view>
+    <block wx:for="{{items}}">
+        <s-fence></s-fence>
+    </block>
+    <view class="counter-container">
+        <!-- <l-counter></l-counter> -->
+    </view>
+
+    
+      
+</view>
+  
