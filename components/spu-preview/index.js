@@ -6,7 +6,24 @@ Component({
   properties: {
     data:Object
   },
-
+  data:{
+    tags: Array
+  },
+  observers:{
+    data:function(data){
+      if(!data){
+        return 
+      }
+      if(!data.tags) {
+        return
+      } 
+      const tags = data.tags.split('$');
+      console.log(tags)
+      this.setData({
+        tags
+      })
+    }
+  },
   /**
    * 组件的初始数据
    */
