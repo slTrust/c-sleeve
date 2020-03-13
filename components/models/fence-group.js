@@ -26,6 +26,19 @@ class FenceGroup{
         console.log(fences);
     }
 
+    initFences1(){
+        const matrix = this._createMatrix(this.sku_list);
+        const fences = [];
+        let currentJ = -1;
+        const AT = matrix.transpose()
+        AT.forEach(r=>{
+            const fence = new Fence(r);
+            fence.init();
+            fences.push(fence)
+        })
+        console.log(fences);
+    }
+
     _createFence(element){
         const fence = new Fence();
         return fence;
