@@ -19,8 +19,14 @@ class SkuCode {
         const length = specCodeArray.length;
 
         for(let i=1;i<=length;i++){
+            // 排列组合后的 结果
             const segments = combination(specCodeArray,i);
-            console.log(segments);
+            // sku 路径
+            const newSegments = segments.map(segs=>{
+                return segs.join('#');
+            })
+            console.log(newSegments);
+            this.totalSegments = this.totalSegments.concat(newSegments);
         }
 
     }
