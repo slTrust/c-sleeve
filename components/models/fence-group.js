@@ -4,6 +4,7 @@ import { Fence } from "./fence";
 class FenceGroup{
     spu
     spuList = []
+    fences
 
     constructor(spu){
         this.spu = spu
@@ -21,6 +22,7 @@ class FenceGroup{
             fences.push(fence)
         })
         console.log(fences)
+        this.fences = fences;
     }
 
     _createFence(element){
