@@ -41,6 +41,7 @@ Component({
     },
     onCellTab(event){
       const cell = event.detail.cell;
+      console.log(event.detail)
       const judger = this.data.judger;
       judger.judge(cell);
       this.setData({
