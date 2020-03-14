@@ -1,19 +1,22 @@
-class judger{
+import {SkuCode} from "./sku-code";
+
+class Judger{
 
     fenceGroup
 
     constructor(fenceGroup) {
         this.fenceGroup = fenceGroup;
+        this.initPathDict();
     }
 
     initPathDict(){
         this.fenceGroup.spu.sku_list.forEach(s=>{
-            s.code
+            const skuCode = new SkuCode(s.code);
         })
     }
 
 }
 
 export {
-    judger
+    Judger
 }
