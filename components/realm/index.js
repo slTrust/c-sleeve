@@ -37,6 +37,9 @@ Component({
       this.setData({
         fences:fenceGroup.fences
       })
+    },
+    onCellTab(event){
+      console.log(event)
     }
   }
 })

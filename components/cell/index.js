@@ -19,7 +19,13 @@ Component({
    */
   methods: {
       onTap:function(event){
-          this.triggerEvent('celltap',{})
+          this.triggerEvent('celltap',{
+              cell:this.properties.cell
+          },{
+              bubbles:true, // 冒泡
+              composed:true // 跨越组件边界
+              // 必须同时为 true 才能在跨越层级的组件里间听到事件
+          })
           // 子组件向父组件传参
       }
   }
