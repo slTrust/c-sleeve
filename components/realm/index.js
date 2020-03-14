@@ -40,10 +40,9 @@ Component({
       })
     },
     onCellTab(event){
-      const cell = event.detail.cell;
-      console.log(event.detail)
+      const {cell,x,y} = event.detail;
       const judger = this.data.judger;
-      judger.judge(cell);
+      judger.judge(cell, x, y);
       this.setData({
         fences:judger.fenceGroup.fences
       });
