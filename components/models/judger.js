@@ -21,10 +21,21 @@ class Judger{
     }
 
     judge(cell,x,y){
-        this._changeCellStatus(cell,x,y);
+        this._changeCurrentCellStatus(cell,x,y);
+        this.fenceGroup.eachCell(this._changeOtherCellStatus)
     }
 
-    _changeCellStatus(cell,x,y){
+    _changeOtherCellStatus(cell,x,y){
+
+    }
+
+    _findPotenialPath(cell,x,y){
+        for (let i = 0; i < this.fenceGroup.fences.length; i++) {
+            
+        }
+    }
+
+    _changeCurrentCellStatus(cell,x,y){
         if(cell.status === CellStatus.WAITING){
             // cell.status = CellStatus.SELECTED; 传递进来的 cell 是小程序自己渲染后的 并不是原来的索引
             // 所以通过 x / y 在 fenceGroup 查找 cell并修改
