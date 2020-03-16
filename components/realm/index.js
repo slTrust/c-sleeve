@@ -69,9 +69,11 @@ Component({
     },
     bindInitData(fenceGroup){
       this.setData({
-        fences:fenceGroup.fences
+        fences:fenceGroup.fences,
+        skuIntact:this.data.judger.isSkuIntact()
       })
     },
+
     onCellTab(event){
       const {cell,x,y} = event.detail;
       const judger = this.data.judger;

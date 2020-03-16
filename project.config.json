@@ -69,7 +69,7 @@
 					"id": 1,
 					"name": "无规格",
 					"pathName": "pages/detail/detail",
-					"query": "pid=12",
+					"query": "pid=11",
 					"scene": null
 				}
 			]
