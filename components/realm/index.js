@@ -1,5 +1,6 @@
 import { FenceGroup } from "../models/fence-group"
 import {Judger} from "../models/judger";
+import {Spu} from "../../models/spu";
 
 // components/realm/index.js
 Component({
@@ -21,6 +22,12 @@ Component({
     'spu':function(spu){
       if(!spu){
         return
+      }
+      if(Spu.isNoSpec(spu)){
+        this.setData({
+          noSpec:true
+        })
+        this.bindSkuData(spu.sku_list[0])
       }
       const fenceGroup = new FenceGroup(spu);
       fenceGroup.initFences();
@@ -56,7 +63,8 @@ Component({
         previewImg:sku.img,
         title:sku.title,
         price:sku.price,
-        discountPrice:sku.discountPrice
+        discountPrice:sku.discountPrice,
+        stock:sku.stock
       });
     },
     bindInitData(fenceGroup){
