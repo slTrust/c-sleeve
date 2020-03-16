@@ -22,13 +22,15 @@ class Judger{
             return
         }
         this.skuPending.init(defaultSku);
-        this.skuPending.pending.forEach(cell=>{
-            this.fenceGroup.setCellStatusById(cell.id,CellStatus.SELECTED);
-            console.log(cell)
-            console.log(1)
-        })
+        this._initSelectedCell();
         this.judge(null,null,null,true);
 
+    }
+
+    _initSelectedCell(){
+        this.skuPending.pending.forEach(cell=>{
+            this.fenceGroup.setCellStatusById(cell.id,CellStatus.SELECTED);
+        })
     }
 
     _initPathDict(){
