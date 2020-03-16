@@ -64,7 +64,7 @@ Component({
         previewImg:spu.img,
         title:spu.title,
         price:spu.price,
-        discountPrice:spu.discountPrice,
+        discountPrice:spu.discount_price,
 
       });
     },
@@ -73,14 +73,16 @@ Component({
         previewImg:sku.img,
         title:sku.title,
         price:sku.price,
-        discountPrice:sku.discountPrice,
+        discountPrice:sku.discount_price,
         stock:sku.stock,
       });
     },
 
     bindTipData(){
       this.setData({
-        skuIntact:this.data.judger.isSkuIntact()
+        skuIntact:this.data.judger.isSkuIntact(),
+        currentValues:this.data.judger.getCurrentValues(),
+        missingKeys:this.data.judger.getMissingKeys()
       })
     },
 
@@ -95,13 +97,16 @@ Component({
       const {x,y} = event.detail;
 
       const cell = new Cell(data.spec);
+      cell.status = data.status;
 
       const judger = this.data.judger;
       judger.judge(cell, x, y);
       const skuIntact = judger.isSkuIntact();
       if(skuIntact){
-
+        const currentSku = judger.getDeterminateSku();
+        this.bindSkuData(currentSku);
       }
+      this.bindTipData();
       this.bindFenceGroupData(judger.fenceGroup);
     }
   }

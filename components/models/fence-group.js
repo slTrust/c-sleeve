@@ -20,7 +20,8 @@ class FenceGroup{
     }
 
     getSku(skuCode){
-        const sku = this.spu.sku_list.find(s=>s.code === skuCode);
+        const fullSkuCode = this.spu.id + '$' + skuCode;
+        const sku = this.spu.sku_list.find(s=>s.code === fullSkuCode);
         return sku?sku:null
     }
 

@@ -14,12 +14,12 @@
                              autofix
                     ></l-price>
                     <l-price
-                            wx:if="{{p.slashedPrice(price,discountPrice).price}}"
+                            wx:if="{{p.slashedPrice(price,discountPrice).display}}"
+                            deleted
+                            color="#999999"
+                            value-size="26"
+                            l-class="discount-price"
                             value="{{p.slashedPrice(price,discountPrice).price}}"
-                            deleted value="999"
-                             color="#999999"
-                             size="26"
-                             l-class="discount-price"
                     ></l-price>
 
                     <view wx:if="{{stock && stock >= 10}}" class="stock">库存：{{stock}}件</view>
@@ -29,8 +29,8 @@
                 <view wx:if="{{!noSpec}}" class="sku-pending">
                     <text wx:if="{{!skuIntact}}">请选择：</text>
                     <text wx:else>已选：</text>
-                    <text wx:if="{{!skuIntact}}">待选择规格名</text>
-                    <text wx:else>已选择规格值</text>
+                    <text wx:if="{{!skuIntact}}">{{missingKeys}}</text>
+                    <text wx:else>{{currentValues}}</text>
                 </view>
             </view>
         </view>
