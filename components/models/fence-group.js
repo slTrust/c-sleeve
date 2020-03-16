@@ -19,6 +19,11 @@ class FenceGroup{
         return this.sku_list.find(s=>s.id === defaultSkuId);
     }
 
+    getSku(skuCode){
+        const sku = this.spu.sku_list.find(s=>s.code === skuCode);
+        return sku?sku:null
+    }
+
     setCellStatusById(cellId,status){
         this.eachCell(cell=>{
             if(cell.id === cellId){
