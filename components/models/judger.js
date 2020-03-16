@@ -1,6 +1,5 @@
 import {SkuCode} from "./sku-code";
 import {CellStatus} from "../../core/enum";
-import {Cell} from "./cell";
 import {SkuPending} from "./sku-pending";
 import {Joiner} from "../../utils/joiner";
 
@@ -12,12 +11,24 @@ class Judger{
 
     constructor(fenceGroup) {
         this.fenceGroup = fenceGroup;
-        this._initSkuPending();
         this._initPathDict();
+        this._initSkuPending();
     }
 
     _initSkuPending(){
-        this.skuPending = new SkuPending()
+        this.skuPending = new SkuPending();
+        const defaultSku = this.fenceGroup.getDefaultSku();
+        if(!defaultSku){
+            return
+        }
+        this.skuPending.init(defaultSku);
+        this.skuPending.pending.forEach(cell=>{
+            this.fenceGroup.setCellStatusById(cell.id,CellStatus.SELECTED);
+            console.log(cell)
+            console.log(1)
+        })
+        this.judge(null,null,null,true);
+
     }
 
     _initPathDict(){
@@ -28,8 +39,11 @@ class Judger{
         })
     }
 
-    judge(cell,x,y){
-        this._changeCurrentCellStatus(cell,x,y);
+    judge(cell, x, y, isInit=false){
+        if(!isInit){
+            this._changeCurrentCellStatus(cell,x,y,isInit);
+        }
+
         this.fenceGroup.eachCell((cell,x,y)=>{
             const path = this._findPotenialPath(cell,x,y);
             console.log(path);
@@ -38,9 +52,9 @@ class Judger{
             }
             const isIn = this._isInDict(path);
             if(isIn){
-                this.fenceGroup.fences[x].cells[y].status = CellStatus.WAITING;
+                this.fenceGroup.setCellStatusByXY(x,y,CellStatus.WAITING);
             }else{
-                this.fenceGroup.fences[x].cells[y].status = CellStatus.FORBIDDEN;
+                this.fenceGroup.setCellStatusByXY(x,y,CellStatus.FORBIDDEN);
             }
         })
     }
@@ -79,14 +93,11 @@ class Judger{
 
     _changeCurrentCellStatus(cell,x,y){
         if(cell.status === CellStatus.WAITING){
-            // cell.status = CellStatus.SELECTED; 传递进来的 cell 是小程序自己渲染后的 并不是原来的索引
-            // 所以通过 x / y 在 fenceGroup 查找 cell并修改
-            this.fenceGroup.fences[x].cells[y].status = CellStatus.SELECTED;
+            this.fenceGroup.setCellStatusByXY(x,y,CellStatus.SELECTED);
             this.skuPending.insertCell(cell,x)
         }
         if(cell.status === CellStatus.SELECTED){
-            // cell.status = CellStatus.WAITING
-            this.fenceGroup.fences[x].cells[y].status = CellStatus.WAITING;
+            this.fenceGroup.setCellStatusByXY(x,y,CellStatus.WAITING);
             this.skuPending.removeCell(cell,x)
         }
 
