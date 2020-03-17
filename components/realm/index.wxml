@@ -42,7 +42,8 @@
         <s-fence x="{{index}}" bind:celltap="onCellTab" fence="{{item}}"></s-fence>
     </block>
     <view class="counter-container">
-        <!-- <l-counter></l-counter> -->
+        <text>购买数量</text>
+        <s-counter></s-counter>
     </view>
 
     

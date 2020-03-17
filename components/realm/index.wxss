@@ -63,3 +63,17 @@
     color:#D20109;
 }
 
+.counter-container{
+    margin-top: 34rpx;
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 200rpx;
+}
+
+.counter-container text{
+    color:#555;
+    font-size: 24rpx;
+}
+
