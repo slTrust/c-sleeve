@@ -1,4 +1,5 @@
 import { Spu } from "../../models/spu";
+import {ShoppingWay} from "../../core/enum";
 
 // pages/detail/detail.js
 Page({
@@ -16,14 +17,28 @@ Page({
   },
   onAddToCart(event){
     this.setData({
-      showRealm:true
+      showRealm:true,
+      orderWay:ShoppingWay.CART
     })
   },
 
   onBuy(event){
     this.setData({
-      showRealm:true
+      showRealm:true,
+      orderWay:ShoppingWay.BUY
     })
   },
+
+  onGoToHome(event){
+    wx.switchTab({
+      url:'/pages/home/home'
+    })
+  },
+
+  onGoToCart(event){
+    wx.switchTab({
+      url:'/pages/cart/care'
+    })
+  }
 
 })
