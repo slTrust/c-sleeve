@@ -2,6 +2,7 @@ import { FenceGroup } from "../models/fence-group"
 import {Judger} from "../models/judger";
 import {Spu} from "../../models/spu";
 import {Cell} from "../models/cell";
+import {Cart} from "../../models/cart";
 
 // components/realm/index.js
 Component({
@@ -17,7 +18,8 @@ Component({
    */
   data: {
     judger:Object,
-    previewImg:String
+    previewImg:String,
+    currentSkuCount:Cart.SKU_MIN_COUNT
   },
   observers:{
     'spu':function(spu){
@@ -51,6 +53,7 @@ Component({
       const defaultSku = fenceGroup.getDefaultSku();
       if(defaultSku){
         this.bindSkuData(defaultSku);
+        this.setStockStatus(defaultSku.stock,this.data.currentSkuCount);
       }else{
         this.bindSpuData();
       }
@@ -92,6 +95,25 @@ Component({
       })
     },
 
+    setStockStatus(stock,currentCount){
+      this.setData({
+        outStock:this.isOutOfStock(stock,currentCount)
+      })
+    },
+
+    isOutOfStock(stock,currentCount){
+      return stock < currentCount
+    },
+
+    onSelectCount(event){
+      const currentSkuCount = event.detail.count;
+      this.data.currentSkuCount = currentSkuCount;
+      if(this.data.judger.isSkuIntact()){
+        const sku = this.data.judger.getDeterminateSku();
+        this.setStockStatus(sku.stock,currentSkuCount);
+      }
+    },
+
     onCellTab(event){
       let data = event.detail.cell;
       const {x,y} = event.detail;
@@ -105,6 +127,7 @@ Component({
       if(skuIntact){
         const currentSku = judger.getDeterminateSku();
         this.bindSkuData(currentSku);
+        this.setStockStatus(currentSku.stock,this.data.currentSkuCount)
       }
       this.bindTipData();
       this.bindFenceGroupData(judger.fenceGroup);
