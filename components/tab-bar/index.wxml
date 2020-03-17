@@ -1,10 +1,10 @@
 <view class="container">
     <view class="icons">
         <view bind:tap="onGoToHome">
-            <l-icon name="cart" size="80" color="#157658"></l-icon>
+            <l-icon name="home" l-class="sleeve"></l-icon>
         </view>
         <view bind:tap="onGoToCart">
-            <l-icon name=""></l-icon>
+            <l-icon name="cart" size="40" color="#157658"></l-icon>
         </view>
     </view>
 

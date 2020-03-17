@@ -1,3 +1,24 @@
 page{
   background:#f5f5f5;
 }
+
+
+@font-face {
+  font-family: 'iconfont';  /* project id 1696011 */
+  src: url('//at.alicdn.com/t/font_1696011_2xvo07o4a7y.eot');
+  src: url('//at.alicdn.com/t/font_1696011_2xvo07o4a7y.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1696011_2xvo07o4a7y.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1696011_2xvo07o4a7y.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1696011_2xvo07o4a7y.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1696011_2xvo07o4a7y.svg#iconfont') format('svg');
+}
+
+.sleeve{
+  /* 这里的 要跟 上面 @font-face 里的 font-family对应 */
+  font-family: iconfont !important;
+  color:#157658 !important;
+}
+
+.l-icon-home:before{
+  content:"\e64f";
+}
