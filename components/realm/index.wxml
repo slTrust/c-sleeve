@@ -1,5 +1,5 @@
 <wxs src="../../wxs/price.wxs" module="p"></wxs>
-<view class="container">
+<scroll-view class="container" scroll-y>
     <view class="sku-preview">
         <image class="sku-img" src="{{previewImg}}"></image>
         <view class="sku-description">
@@ -47,14 +47,16 @@
         ></s-counter>
     </view>
 
-    <view wx:if="{{!outStock}}" class="bottom-btn">
-        <text>加入购物车</text>
-    </view>
-    <view wx:else class="bottom-btn out-stock">
-        <text>暂时缺货</text>
-    </view>
+
 
     
       
+</scroll-view>
+
+<view wx:if="{{!outStock}}" class="bottom-btn">
+    <text>加入购物车</text>
+</view>
+<view wx:else class="bottom-btn out-stock">
+    <text>暂时缺货</text>
 </view>
   

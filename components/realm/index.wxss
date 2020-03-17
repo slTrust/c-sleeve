@@ -1,8 +1,10 @@
 /* components/realm/index.wxss */
 .container{
+    box-sizing: border-box;
     padding: 30rpx;
     background-color: #fff;
-    box-sizing: border-box;
+    max-height: 1000rpx;
+    min-height: 600rpx;
 }
 
 .sku-preview{
@@ -87,6 +89,8 @@
     background-color: #333;
     position: absolute;
     bottom:0;
+    left:0;
+    right:0;
 }
 
 .out-stock{
