@@ -20,6 +20,7 @@
     "l-icon": "/miniprogram_npm/lin-ui/icon/index",
     "l-water-flow": "/miniprogram_npm/lin-ui/water-flow/index",
     "l-tag": "/miniprogram_npm/lin-ui/tag/index",
+    "l-badge": "/miniprogram_npm/lin-ui/badge/index",
     "l-loadmore": "/miniprogram_npm/lin-ui/loadmore/index",
     "s-spu-preview": "components/spu-preview/index",
     "s-counter": "components/counter/index"
