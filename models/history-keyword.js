@@ -6,7 +6,12 @@ class HistoryKeyword{
     keywords = []
 
     constructor(){
+        if(typeof HistoryKeyword.instance === 'object'){
+            return HistoryKeyword.instance;
+        }
+        HistoryKeyword.instance = this;
         this.keywords =  this._getLocalKeywords();
+        return this;
     }
 
     // 缓存中写入数据
@@ -37,8 +42,7 @@ class HistoryKeyword{
     }
 
     _refreshLocal(){
-        wx.setStorageSync(HistoryKeyword.KEY,this.keywords)
-        this._refreshLocal()
+        wx.setStorageSync(HistoryKeyword.KEY,this.keywords);
     }
 
     _getLocalKeywords(){
