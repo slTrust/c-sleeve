@@ -4,11 +4,12 @@
         maxlength="9"
         bg-color="#f1f1f1"
         bind:linconfirm="onSearch"
+        bind:lincancel="onCancel"
         placeholder="请输入商品名称"></l-search-bar>
 </view>
 
 <view class="container">
-    <view>
+    <view wx:if="{{!search}}">
         <view wx:if="{{historyTags.length !== 0}}" class="history-container">
             <view class="history-title">
                 <view class="slide"></view>
@@ -20,23 +21,36 @@
             </view>
             <view class="history-tags">
                 <block wx:for="{{historyTags}}" wx:key="{{index}}">
-                    <l-tag l-class="tag" name="{{item}}">{{item}}</l-tag>
+                    <l-tag 
+                        bind:lintap="onSearch"
+                        l-class="tag" name="{{item}}">{{item}}</l-tag>
+                </block>
+            </view>
+        </view>
+
+        <view class="history-container">
+            <view class="history-title">
+                <view class="slide"></view>
+                <text class="">热门搜索</text>
+            </view>
+            <view class="history-tags">
+                <block wx:for="{{hotTags}}" wx:key="{{index}}">
+                    <l-tag 
+                        bind:lintap="onSearch"
+                        select="{{item.highlight}}" l-class="tag" l-select-class="tag-selected" name="{{item.title}}">{{item.title}}</l-tag>
                 </block>
             </view>
         </view>
     </view>
-
-    <view class="history-container">
-        <view class="history-title">
-            <view class="slide"></view>
-            <text class="">热门搜索</text>
-        </view>
-         <view class="history-tags">
-            <block wx:for="{{hotTags}}" wx:key="{{index}}">
-                <l-tag select="{{item.highlight}}" l-class="tag" l-select-class="tag-selected" name="{{item.title}}">{{item.title}}</l-tag>
-            </block>
-        </view>
+    <view wx:else>
+        <block wx:for="{{items}}">
+            <s-spu-preview-r data="{{item}}"></s-spu-preview-r>
+        </block>
+          
     </view>
+      
+
+    
       
 
       
