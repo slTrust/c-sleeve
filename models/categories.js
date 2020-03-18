@@ -22,7 +22,6 @@ class Categories{
     }
 
     getSubs(parentId){
-        console.log(this.subs)
         return this.subs.filter(sub=>sub.parent_id == parentId)
     }
 }
