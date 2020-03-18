@@ -40,7 +40,7 @@
     </view>
 
     <view class="right">
-        
+        <button open-type="share">分享</button>
     </view>
 </view>
   
