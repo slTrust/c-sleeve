@@ -1,4 +1,5 @@
 import {getWidthSize} from "../../utils/system"
+import {px2rpx} from "../../miniprogram_npm/lin-ui/utils/util"
 
 Page({
 
@@ -14,13 +15,22 @@ Page({
    */
   onLoad: async function (options) {
     const res = await getWidthSize();
+    const windowHeightRpx = px2rpx(res.windowHeight);
+
     // 60 是 搜索栏高度 
     // 20 是main的 margin-top 
     // 2  是main的border-top
-    const h = res.windowHeight - 60 - 20 - 2;
+    const h = windowHeightRpx - 60 - 20 - 2;
     this.setData({
       segHeight:h
-    })
+    });
+    /*
+    rate
+
+          750rpx               x
+    ---------------- = --------------------
+    res.screenHeight     res.windowHeight
+    */
   },
 
   onGotoSearch(){
