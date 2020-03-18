@@ -1,6 +1,7 @@
 import {HistoryKeyword} from '../../models/history-keyword'
 import { Tag } from '../../models/tag';
 import { Search } from '../../models/search';
+import {showToast} from '../../utils/ui';
 
 const history = new HistoryKeyword();
 Page({
@@ -21,6 +22,10 @@ Page({
       items:[]
     })
     const keyword = event.detail.value || event.detail.name;
+    if(!keyword){
+      showToast('请输入关键字');
+      return;
+    }
     history.save(keyword);
     
     this.setData({
