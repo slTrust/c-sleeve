@@ -13,26 +13,19 @@
     </view>
     <view class="main">
         <l-segment 
+            active-key="{{defaultRootId}}"
             height="{{segHeight}}"
             width="160"
             item-height="90"
+            scrollable
             even="{{false}}"
             l-active-class="segment-item-active"
             l-inactive-class="segment-item"
             l-line-class="l-seg-line"
             placement="left">
-            <l-segment-item key="1" tab="唐门1"></l-segment-item>
-            <l-segment-item key="2" tab="唐门2"></l-segment-item>
-            <l-segment-item key="3" tab="唐门3"></l-segment-item>
-            <l-segment-item key="4" tab="唐门4"></l-segment-item>
-            <l-segment-item key="11" tab="唐门11"></l-segment-item>
-            <l-segment-item key="22" tab="唐门22"></l-segment-item>
-            <l-segment-item key="33" tab="唐门33"></l-segment-item>
-            <l-segment-item key="44" tab="唐门44"></l-segment-item>
-            <l-segment-item key="111" tab="唐门111"></l-segment-item>
-            <l-segment-item key="222" tab="唐门222"></l-segment-item>
-            <l-segment-item key="333" tab="唐门333"></l-segment-item>
-            <l-segment-item key="444" tab="唐门444"></l-segment-item>
+            <block wx:for="{{roots}}" wx:key="{{index}}">
+                <l-segment-item key="{{item.id}}" tab="{{item.name}}"></l-segment-item>
+            </block>
         </l-segment>
         <view>
             
