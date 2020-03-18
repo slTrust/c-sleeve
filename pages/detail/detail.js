@@ -39,6 +39,12 @@ Page({
     wx.switchTab({
       url:'/pages/cart/care'
     })
+  },
+
+  onSpecChange(event){
+    this.setData({
+      specs:event.detail
+    })
   }
 
 })

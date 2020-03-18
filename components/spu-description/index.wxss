@@ -52,6 +52,16 @@
     border-radius: 20rpx !important;
 }
 
+.right{
+    margin-left: 20rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 78rpx;
+    height: 120rpx;
+    border-left: 2rpx dashed #F5F5F5;
+}
+
 .inner{
     display: flex;
     flex-direction: column;
