@@ -34,4 +34,15 @@
     color:#157658;
 }
 
+.explain{
+    margin-top: 10rpx;
+    background-color: #fff;
+    padding-bottom: 20rpx;
+    padding-top: 20rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
 
