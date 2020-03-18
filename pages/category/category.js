@@ -1,4 +1,5 @@
-// pages/category/category.js
+import {getWidthSize} from "../../utils/system"
+
 Page({
 
   /**
@@ -11,8 +12,15 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: async function (options) {
+    const res = await getWidthSize();
+    // 60 是 搜索栏高度 
+    // 20 是main的 margin-top 
+    // 2  是main的border-top
+    const h = res.windowHeight - 60 - 20 - 2;
+    this.setData({
+      segHeight:h
+    })
   },
 
   onGotoSearch(){
