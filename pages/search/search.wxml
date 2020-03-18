@@ -46,14 +46,9 @@
         <block wx:for="{{items}}">
             <s-spu-preview-r data="{{item}}"></s-spu-preview-r>
         </block>
-          
     </view>
-      
 
-    
-      
-
-      
+    <l-loading></l-loading>
 </view>
   
   

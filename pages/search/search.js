@@ -33,7 +33,13 @@ Page({
     })
 
     const paging = Search.search(keyword);
+    wx.lin.showLoading({
+      color:'#157658',
+      type:'flash',
+      fullScreen:true // 全屏模式，不需要你去定位
+    });
     const data = await paging.getMoreData();
+    wx.lin.hideLoading();
     this.bindItems(data);
   },
 
