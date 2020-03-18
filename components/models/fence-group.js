@@ -45,12 +45,22 @@ class FenceGroup{
         AT.forEach(r=>{
             const fence = new Fence(r);
             fence.init();
+            if(this._hasSketchFence() && this._isSketchFence(fence.id)){
+                fence.setFenceSketch(this.sku_list);
+            }
             fences.push(fence)
         })
-        console.log(fences)
         this.fences = fences;
     }
 
+    _hasSketchFence(){
+        // api 里 sketch_spec_id 用来标示 是否含有可视规格
+        return this.spu.sketch_spec_id?true:false;
+    }
+
+    _isSketchFence(fenceId){
+        return this.spu.sketch_spec_id === fenceId ? true : false;
+    }
 
     eachCell(cb){
         for (let i = 0; i < this.fences.length; i++) {
