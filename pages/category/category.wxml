@@ -17,8 +17,9 @@
             height="{{segHeight}}"
             width="160"
             item-height="90"
-            scrollable
             even="{{false}}"
+            scrollable
+            bind:linchange="onSegChange"
             l-active-class="segment-item-active"
             l-inactive-class="segment-item"
             l-line-class="l-seg-line"
